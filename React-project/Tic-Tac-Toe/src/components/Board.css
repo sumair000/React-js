@@ -1,7 +1,8 @@
-
-
-.board-container{
-    border: 1px solid white;
-    padding: 6px;
-    border-radius: 5px;
+.status{
+    color: white;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'Gill Sans', sans-serif;
 }
