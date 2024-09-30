@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./Board.css";
 import Square from "./Square";
-
+import ResetButton from "./ResetButton";
 const Board = () => {
 
     const [xIsNext, setXIsNext] = useState(true);
@@ -57,6 +57,12 @@ const Board = () => {
         return null;
     }
 
+    function onResetClick(){
+        
+        setSquares(Array(9).fill(null));
+        setXIsNext(true);
+    }
+
   return (
     <div className="board-container">
         <div className= "status" > {status}</div>
@@ -74,6 +80,9 @@ const Board = () => {
         <Square value={squares[6]} onSquareClick={() =>handleClick(6)}/>
         <Square value={squares[7]} onSquareClick={() =>handleClick(7)}/>
         <Square value={squares[8]} onSquareClick={() =>handleClick(8)}/>
+      </div>
+      <div className="rest-btn">
+      <ResetButton  onResetClick={onResetClick}/>
       </div>
     </div>
   );
