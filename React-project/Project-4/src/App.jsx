@@ -1,8 +1,11 @@
 
 import { useEffect } from 'react'
 import './App.css'
+import { useState } from 'react'
 
 function App() {
+
+  const [count , setCount] = useState(0);
 
 // firt -> side-effect funtion hy, e.g db call,fetch api cal ....
 
@@ -10,14 +13,28 @@ function App() {
 
 // third -> comma separated dependency list, to run on the spot side effect.....
 
+// variation 1
 
-  useEffect(() => {
-    
-  })
+  // useEffect(() => {
+  //   alert("i'll run on every rander");
+  // })
+
+// variation 2
+
+useEffect(() =>{
+  alert("i'll run on only first render")
+}, [])
+  function handlClick(){
+    setCount(count + 1);
+  }
   
   return(
     <>
-    <div>Bado-Badi</div>
+    <button onClick={handlClick}>
+      click me
+    </button>
+    <br />
+    count is: {count}
     </>
   )
 }
