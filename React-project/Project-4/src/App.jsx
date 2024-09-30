@@ -21,9 +21,17 @@ function App() {
 
 // variation 2
 
-useEffect(() =>{
-  alert("i'll run on only first render")
-}, [])
+// useEffect(() =>{
+//   alert("i'll run on only first render")
+// }, [])
+
+// variation 3
+
+useEffect(()=>{
+  alert("i'll run whenever count will updated");
+
+}, [count])
+
   function handlClick(){
     setCount(count + 1);
   }
