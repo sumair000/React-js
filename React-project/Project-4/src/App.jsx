@@ -36,10 +36,21 @@ function App() {
 
 // variation 4: multiple dependencies
 
-useEffect(()=>{
-  alert("i'll run when any of count or total will updates");
-},[count,total])
+// useEffect(()=>{
+//   alert("i'll run when any of count or total will updates");
+// },[count,total])
 
+
+
+// variation 5: Clean-up function
+
+useEffect(()=>{
+  alert("will run when count updates")
+
+  return()=>{
+  alert("count is unmounted from UI")
+  }
+},[count])
   function handlClick(){
     setCount(count + 1);
   }
