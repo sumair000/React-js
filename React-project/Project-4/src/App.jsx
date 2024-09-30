@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 function App() {
 
+  const [total, setTotal] = useState(1);
   const [count , setCount] = useState(0);
 
 // firt -> side-effect funtion hy, e.g db call,fetch api cal ....
@@ -27,13 +28,24 @@ function App() {
 
 // variation 3
 
-useEffect(()=>{
-  alert("i'll run whenever count will updated");
+// useEffect(()=>{
+//   alert("i'll run whenever count will updated");
 
-}, [count])
+// }, [count])
+
+
+// variation 4: multiple dependencies
+
+useEffect(()=>{
+  alert("i'll run when any of count or total will updates");
+},[count,total])
 
   function handlClick(){
     setCount(count + 1);
+  }
+
+  function hanleTotalClick(){
+    setTotal(total + 1);
   }
   
   return(
@@ -43,6 +55,12 @@ useEffect(()=>{
     </button>
     <br />
     count is: {count}
+    <br />
+    <button onClick={hanleTotalClick}>
+      total btn
+    </button>
+    <br />
+    total is: {total}
     </>
   )
 }
