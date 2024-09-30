@@ -2,11 +2,13 @@
 import { useEffect } from 'react'
 import './App.css'
 import { useState } from 'react'
+import TimerComponent from './components/TimerComponent'
+import DataFetch from './components/DataFetch'
 
 function App() {
 
-  const [total, setTotal] = useState(1);
-  const [count , setCount] = useState(0);
+  // const [total, setTotal] = useState(1);
+  // const [count , setCount] = useState(0);
 
 // firt -> side-effect funtion hy, e.g db call,fetch api cal ....
 
@@ -44,24 +46,31 @@ function App() {
 
 // variation 5: Clean-up function
 
-useEffect(()=>{
-  alert("will run when count updates")
+// useEffect(()=>{
+//   alert("will run when count updates")
 
-  return()=>{
-  alert("count is unmounted from UI")
-  }
-},[count])
-  function handlClick(){
-    setCount(count + 1);
-  }
+//   return()=>{
+//   alert("count is unmounted from UI")
+//   }
+// },[count])
 
-  function hanleTotalClick(){
-    setTotal(total + 1);
-  }
+
+  // function handlClick(){
+  //   setCount(count + 1);
+  // }
+
+  // function hanleTotalClick(){
+  //   setTotal(total + 1);
+  // }
+
   
   return(
     <>
-    <button onClick={handlClick}>
+
+    <DataFetch />
+
+    {/* <TimerComponent /> */}
+    {/* <button onClick={handlClick}>
       click me
     </button>
     <br />
@@ -71,7 +80,8 @@ useEffect(()=>{
       total btn
     </button>
     <br />
-    total is: {total}
+    total is: {total} */}
+    {/* <h1>Bado Badi</h1> */}
     </>
   )
 }
