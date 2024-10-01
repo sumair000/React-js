@@ -1,0 +1,13 @@
+.nav-container{
+    background-color: #242424;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
