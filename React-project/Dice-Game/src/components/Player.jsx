@@ -1,9 +1,10 @@
 import React from 'react'
+import './Player.css'
 
 const Player = () => {
   return (
-    <div>
-      Players
+    <div className='container'>
+      Players Details
     </div>
   )
 }

@@ -4,7 +4,7 @@ import './NavBar.css'
 const NavBar = () => {
   return (
     <div className='nav-container'>
-      This is Navigation Bar
+      Dice Game
     </div>
   )
 }
