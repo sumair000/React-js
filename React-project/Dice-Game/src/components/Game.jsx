@@ -29,18 +29,25 @@ const Game = () => {
     const player = [...players]
     if(isNext){
       player[0].turn = true;
-      console.log(player); 
+      player[1].turn = false;
+      // console.log(player); 
     }
     else{
+      player[0].turn = false;
       player[1].turn = true;
+      // console.log(player); 
+
     }
+    setPlayers(player)
     setIsNext(!isNext);
+    
   }
+  // console.log('original array',players);
   
   return (
     <div className='game-board'>
         <NavBar />      
-        <Roll/>
+        <Roll players={players} setPlayers={setPlayers}/>
         <button onClick={handleClick}>Toss</button>
 
     </div>
