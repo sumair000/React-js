@@ -8,8 +8,9 @@ const Roll = ({players, setPlayers, togglePlayer}) => {
     
     const [diceValue, setDiceValue] = useState(1);
     function rollDice(){
-        // console.log(players);
+        console.log(players);
         
+       
         const newValue = Math.floor(Math.random() * 6) + 1;
         setDiceValue(newValue);
 
@@ -17,7 +18,7 @@ const Roll = ({players, setPlayers, togglePlayer}) => {
             if (player.turn) {
                 
                 const updateScore = player.score + newValue;
-                console.log(`${player.name}'s Score: ${updateScore}`);
+                // console.log(`${player.name}'s Score: ${updateScore}`);
                 
                 return {...player, score:updateScore};
             }
@@ -31,6 +32,13 @@ const Roll = ({players, setPlayers, togglePlayer}) => {
             togglePlayer();
         }
         console.log(updatedPlayer);
+        const index = players.findIndex(index => index.disabled);
+        if(index === -1)
+        {
+            console.log('haha.....');
+            
+            return;
+        }
         
     }
   return (
