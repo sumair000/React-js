@@ -3,25 +3,33 @@ import Dice from './Dice';
 
 import './Roll.css'
 
-const Roll = ({players, setPlayers}) => {
+const Roll = ({players, setPlayers, togglePlayer}) => {
 
     
     const [diceValue, setDiceValue] = useState(1);
     function rollDice(){
-        console.log(players);
+        // console.log(players);
         
         const newValue = Math.floor(Math.random() * 6) + 1;
         setDiceValue(newValue);
 
         const updatedPlayer = players.map(player => {
             if (player.turn) {
-                console.log('inside if conditon');
                 
-                return {...player, score:player.score + newValue};
+                const updateScore = player.score + newValue;
+                console.log(`${player.name}'s Score: ${updateScore}`);
+                
+                return {...player, score:updateScore};
             }
             return player;
         })
         setPlayers(updatedPlayer)
+
+        if (newValue === 1) {
+            console.log('player toggled..');
+            
+            togglePlayer();
+        }
         console.log(updatedPlayer);
         
     }

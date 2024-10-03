@@ -24,7 +24,11 @@ const Game = () => {
     }
   ])
 
-  function handleClick(){
+  function startGame(){
+    togglePlayer();
+  }
+
+  function togglePlayer(){
 
     const player = [...players]
     if(isNext){
@@ -47,8 +51,10 @@ const Game = () => {
   return (
     <div className='game-board'>
         <NavBar />      
-        <Roll players={players} setPlayers={setPlayers}/>
-        <button onClick={handleClick}>Toss</button>
+        <Roll 
+        players={players} setPlayers={setPlayers} togglePlayer={togglePlayer}
+        />
+        <button onClick={startGame}>Start Game</button>
 
     </div>
   )
